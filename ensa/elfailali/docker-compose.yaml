@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ensaDB
+    volumes:
+      - ./init-mysql.sql:/docker-entrypoint-initdb.d/init.sql
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgre
+      - POSTGRES_PASSWORD=0000
+      - POSTGRES_DB=ensaDB
